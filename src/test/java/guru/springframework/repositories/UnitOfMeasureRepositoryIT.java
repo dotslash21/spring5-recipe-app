@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UnitOfMeasureRepositoryTestIT {
+public class UnitOfMeasureRepositoryIT {
 
     @Autowired
     UnitOfMeasureRepository unitOfMeasureRepository;
@@ -24,20 +24,19 @@ public class UnitOfMeasureRepositoryTestIT {
     }
 
     @Test
-    public void findByDescription() {
+    public void findByDescription() throws Exception {
 
         Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
 
-        assertTrue(uomOptional.isPresent());
         assertEquals("Teaspoon", uomOptional.get().getDescription());
     }
 
     @Test
-    public void findByDescriptionCup() {
+    public void findByDescriptionCup() throws Exception {
 
         Optional<UnitOfMeasure> uomOptional = unitOfMeasureRepository.findByDescription("Cup");
 
-        assertTrue(uomOptional.isPresent());
         assertEquals("Cup", uomOptional.get().getDescription());
     }
+
 }
